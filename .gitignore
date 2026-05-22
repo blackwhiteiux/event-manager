@@ -38,7 +38,7 @@ out/
 .DS_Store
 
 ### Private Course Docs ###
-docs/*
-!docs/openapi/
-!docs/openapi/**
+event-manager/src/main/resources/static/docs/*
+!event-manager/src/main/resources/static/docs/openapi/
+!event-manager/src/main/resources/static/docs/openapi/**
 diagrams/
