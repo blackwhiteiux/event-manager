@@ -27,9 +27,7 @@ public class LocationController {
     @GetMapping
     public List<LocationDto> getAllLocations() {
         log.info("GET /locations - request to get all locations");
-        var result = locationService.getAllLocations().stream()
-                .map(locationMapper::toDto)
-                .toList();
+        var result = locationService.getAllLocations();
         log.info("GET /locations - returned {} locations", result.size());
         return result;
     }
@@ -90,8 +88,7 @@ public class LocationController {
         log.info("PUT /locations/{} - request to update location with data: {}",
                 id, locationDtoToUpdate);
 
-        var locationToUpdate = locationMapper.toDomain(locationDtoToUpdate);
-        var updated = locationService.updateLocation(id, locationToUpdate);
+        var updated = locationService.updateLocation(id, locationDtoToUpdate);
         var response = locationMapper.toDto(updated);
 
         log.info("PUT /locations/{} - location updated successfully: {}", id, response);

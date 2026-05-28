@@ -8,7 +8,6 @@ public record LocationDto (
         Long id,
 
         @NotBlank
-        @NotNull
         String name,
 
         @NotBlank

@@ -1,4 +1,4 @@
-HELP.md
+ч1HELP.md
 build/
 target/
 !**/src/main/**/target/
@@ -38,7 +38,6 @@ out/
 .DS_Store
 
 ### Private Course Docs ###
-event-manager/src/main/resources/static/docs/*
 !event-manager/src/main/resources/static/docs/openapi/
 !event-manager/src/main/resources/static/docs/openapi/**
 diagrams/

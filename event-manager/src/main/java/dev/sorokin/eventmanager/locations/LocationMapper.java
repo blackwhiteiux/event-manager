@@ -8,4 +8,5 @@ public interface LocationMapper {
     Location toDomain(LocationDto location);
     LocationEntity toEntity(Location location);
     Location toDomain(LocationEntity location);
+    LocationDto toDto(LocationEntity entity);
 }

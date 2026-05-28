@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class LocationService {
@@ -20,9 +21,9 @@ public class LocationService {
     }
 
 
-    public List<Location> getAllLocations() {
+    public List<LocationDto> getAllLocations() {
         return locationRepository.findAll().stream()
-                .map(locationMapper::toDomain)
+                .map(locationMapper::toDto)
                 .toList();
     }
 
@@ -62,8 +63,10 @@ public class LocationService {
 
     public Location updateLocation(
             Long id,
-            Location locationToUpdate
+            LocationDto locationDtoToUpdate
     ) {
+        var locationToUpdate = locationMapper.toDomain(locationDtoToUpdate);
+
         var locationEntityToUpdate = locationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Location with id=%s not found".formatted(id)
@@ -72,7 +75,7 @@ public class LocationService {
         String newName = locationToUpdate.name();
         String oldName = locationEntityToUpdate.getName();
 
-        if(!newName.equals(oldName) &&
+        if(!Objects.equals(newName, oldName) &&
                 locationRepository.existsByName(locationToUpdate.name())) {
             throw new IllegalArgumentException("Location with name '%s' already exists"
                     .formatted(newName));
