@@ -27,4 +27,9 @@ logging:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui/index.html
+    path: /swagger-ui.html
+    url: /docs/openapi/event-manager-openapi.yaml
+
+jwt:
+  lifetime: 86400000
+  secret-key: cbDzs2G4F3uOu9NrZvyAKjVFt5VfWxnn0WSiNdfvKyv
