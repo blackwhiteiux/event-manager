@@ -27,4 +27,5 @@ logging:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui/index.html
+    path: /swagger-ui.html
+    url: /docs/openapi/event-manager-openapi.yaml
