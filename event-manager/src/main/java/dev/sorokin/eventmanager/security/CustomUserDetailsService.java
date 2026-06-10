@@ -1,6 +1,6 @@
 package dev.sorokin.eventmanager.security;
 
-import dev.sorokin.eventmanager.users.UserRepository;
+import dev.sorokin.eventmanager.repository.UserRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

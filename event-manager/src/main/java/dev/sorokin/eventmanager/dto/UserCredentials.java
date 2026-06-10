@@ -1,4 +1,4 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

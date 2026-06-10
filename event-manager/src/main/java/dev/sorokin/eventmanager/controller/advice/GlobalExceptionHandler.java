@@ -1,5 +1,6 @@
-package dev.sorokin.eventmanager.web;
+package dev.sorokin.eventmanager.controller.advice;
 
+import dev.sorokin.eventmanager.dto.ErrorMessageResponse;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,10 +17,10 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<dev.sorokin.eventmanager.web.ErrorMessageResponse> handleGenericException(
+    public ResponseEntity<ErrorMessageResponse> handleGenericException(
             Exception e) {
         log.error("Internal server error", e);
-        var error = new dev.sorokin.eventmanager.web.ErrorMessageResponse(
+        var error = new ErrorMessageResponse(
                 "Внутренняя ошибка сервера",
                 e.getMessage(),
                 LocalDateTime.now()
@@ -35,7 +36,7 @@ public class GlobalExceptionHandler {
             MethodArgumentNotValidException.class,
             IllegalArgumentException.class
     })
-    public ResponseEntity<dev.sorokin.eventmanager.web.ErrorMessageResponse> handleValidationException(Exception e) {
+    public ResponseEntity<ErrorMessageResponse> handleValidationException(Exception e) {
         log.error("Got validation exception", e);
 
         String detailedMessage;
@@ -49,7 +50,7 @@ public class GlobalExceptionHandler {
             detailedMessage = e.getMessage();
         }
 
-        var error = new dev.sorokin.eventmanager.web.ErrorMessageResponse(
+        var error = new ErrorMessageResponse(
                 "Ошибка валидации",
                 detailedMessage,
                 LocalDateTime.now()
@@ -62,10 +63,10 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<dev.sorokin.eventmanager.web.ErrorMessageResponse> handleNotFoundException(
+    public ResponseEntity<ErrorMessageResponse> handleNotFoundException(
             EntityNotFoundException e) {
         log.error("Got not found exception", e);
-        var error = new dev.sorokin.eventmanager.web.ErrorMessageResponse(
+        var error = new ErrorMessageResponse(
                 "Сущность не найдена",
                 e.getMessage(),
                 LocalDateTime.now()

@@ -1,4 +1,4 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

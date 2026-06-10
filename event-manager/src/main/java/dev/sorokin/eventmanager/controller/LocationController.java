@@ -1,5 +1,8 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.controller;
 
+import dev.sorokin.eventmanager.dto.LocationDto;
+import dev.sorokin.eventmanager.mapper.LocationMapper;
+import dev.sorokin.eventmanager.service.LocationService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

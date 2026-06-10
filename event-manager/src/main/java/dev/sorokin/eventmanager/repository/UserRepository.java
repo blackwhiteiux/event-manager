@@ -1,5 +1,6 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.repository;
 
+import dev.sorokin.eventmanager.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

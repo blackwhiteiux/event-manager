@@ -1,4 +1,4 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.domain;
 
 public enum UserRole {
     USER,

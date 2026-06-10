@@ -1,5 +1,8 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.mapper;
 
+import dev.sorokin.eventmanager.dto.LocationDto;
+import dev.sorokin.eventmanager.entity.LocationEntity;
+import dev.sorokin.eventmanager.domain.Location;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,7 +1,7 @@
 package dev.sorokin.eventmanager.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.sorokin.eventmanager.web.ErrorMessageResponse;
+import dev.sorokin.eventmanager.dto.ErrorMessageResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

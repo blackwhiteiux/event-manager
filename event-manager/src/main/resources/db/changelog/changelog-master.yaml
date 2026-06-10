@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/changesets/0003-create-users-table.sql
   - include:
       file: db/changelog/changesets/0004-add-age-to-users.sql
+  - include:
+      file: db/changelog/changesets/0005-insert-default-users.sql

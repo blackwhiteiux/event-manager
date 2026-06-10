@@ -1,6 +1,12 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.controller;
 
+import dev.sorokin.eventmanager.dto.JwtResponse;
+import dev.sorokin.eventmanager.mapper.UserMapper;
 import dev.sorokin.eventmanager.security.jwt.AuthenticationService;
+import dev.sorokin.eventmanager.dto.UserCredentials;
+import dev.sorokin.eventmanager.dto.UserDto;
+import dev.sorokin.eventmanager.dto.UserRegistration;
+import dev.sorokin.eventmanager.service.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

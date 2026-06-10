@@ -1,5 +1,6 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.entity;
 
+import dev.sorokin.eventmanager.domain.UserRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

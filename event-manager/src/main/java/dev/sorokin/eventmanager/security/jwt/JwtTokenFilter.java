@@ -1,6 +1,6 @@
 package dev.sorokin.eventmanager.security.jwt;
 
-import dev.sorokin.eventmanager.users.UserService;
+import dev.sorokin.eventmanager.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

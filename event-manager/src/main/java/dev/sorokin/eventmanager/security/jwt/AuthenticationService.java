@@ -1,6 +1,6 @@
 package dev.sorokin.eventmanager.security.jwt;
 
-import dev.sorokin.eventmanager.users.UserCredentials;
+import dev.sorokin.eventmanager.dto.UserCredentials;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;

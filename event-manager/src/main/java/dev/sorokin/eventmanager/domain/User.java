@@ -1,6 +1,6 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.domain;
 
-public record UserDto (
+public record User (
         Long id,
         String login,
         Integer age,

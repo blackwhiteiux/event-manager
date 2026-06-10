@@ -1,9 +1,7 @@
-package dev.sorokin.eventmanager.users;
+package dev.sorokin.eventmanager.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-
-import static dev.sorokin.eventmanager.users.UserConstraints.MINIMAL_USER_AGE;
 
 public record UserRegistration (
         @NotBlank

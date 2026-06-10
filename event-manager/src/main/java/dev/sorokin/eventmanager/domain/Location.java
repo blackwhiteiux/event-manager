@@ -1,4 +1,4 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.domain;
 
 public record Location (
         Long id,
