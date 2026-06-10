@@ -33,7 +33,6 @@ public class UserService {
         if(userRepository.existsByLogin(userRegistration.login())) {
             throw new IllegalArgumentException("Пользователь с таким логином уже существует.");
         }
-
         var hashedPass = passwordEncoder.encode(userRegistration.password());
 
         var userToSave = new UserEntity(
