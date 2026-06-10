@@ -1,6 +1,9 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 
 
 public record LocationDto (

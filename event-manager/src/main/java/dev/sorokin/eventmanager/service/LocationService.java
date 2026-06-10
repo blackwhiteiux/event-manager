@@ -1,5 +1,9 @@
-package dev.sorokin.eventmanager.locations;
+package dev.sorokin.eventmanager.service;
 
+import dev.sorokin.eventmanager.domain.Location;
+import dev.sorokin.eventmanager.dto.LocationDto;
+import dev.sorokin.eventmanager.mapper.LocationMapper;
+import dev.sorokin.eventmanager.repository.LocationRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 

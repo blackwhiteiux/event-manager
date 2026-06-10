@@ -1,4 +1,4 @@
-package dev.sorokin.eventmanager.web;
+package dev.sorokin.eventmanager.dto;
 
 import java.time.LocalDateTime;
 
