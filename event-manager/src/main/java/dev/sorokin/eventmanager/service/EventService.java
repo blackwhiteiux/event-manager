@@ -1,5 +1,7 @@
 package dev.sorokin.eventmanager.service;
 
+import dev.sorokin.eventmanager.dto.EventDto;
+import dev.sorokin.eventmanager.mapper.EventMapper;
 import dev.sorokin.eventmanager.specification.EventSpecification;
 import dev.sorokin.eventmanager.domain.EventStatus;
 import dev.sorokin.eventmanager.domain.UserRole;
@@ -23,15 +25,18 @@ public class EventService {
 
     private final EventRepository eventRepository;
     private final LocationService locationService;
+    private final EventMapper eventMapper;
     private final UserService userService;
 
     public EventService(
             EventRepository eventRepository,
             @Lazy LocationService locationService,
+            EventMapper eventMapper,
             UserService userService
     ) {
         this.eventRepository = eventRepository;
         this.locationService = locationService;
+        this.eventMapper = eventMapper;
         this.userService = userService;
     }
 
@@ -134,9 +139,12 @@ public class EventService {
     }
 
 
-    public List<EventEntity> getOwnerEvents() {
+    public List<EventDto> getOwnerEvents() {
         var currentUser = userService.getCurrentUserEntity();
-        return eventRepository.findAllByOwnerId(currentUser.getId());
+        var result = eventRepository.findAllByOwnerId(currentUser.getId());
+        return result.stream()
+                .map(eventMapper::toDto)
+                .toList();
     }
 
 

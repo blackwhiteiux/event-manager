@@ -37,8 +37,10 @@ public class EventController {
             @RequestBody @Valid EventCreateRequestDto eventDtoToCreate
     ) {
         log.info("POST /events - request to create event: {}", eventDtoToCreate);
-        var result = eventService.createEvent(eventDtoToCreate);
-        var response = eventMapper.toDto(result);
+
+        var response = eventMapper.toDto(
+                eventService.createEvent(eventDtoToCreate)
+        );
 
         log.info("POST /events - event created successfully with id: {}", response.id());
         return ResponseEntity
@@ -110,11 +112,8 @@ public class EventController {
         log.info("GET /events/my - request to get events owned by current user");
 
         var result = eventService.getOwnerEvents();
-        var response = result.stream()
-                .map(eventMapper::toDto)
-                .toList();
 
-        log.info("GET /events/my - found {} events owned by current user", response.size());
-        return response;
+        log.info("GET /events/my - found {} events owned by current user", result.size());
+        return result;
     }
 }
