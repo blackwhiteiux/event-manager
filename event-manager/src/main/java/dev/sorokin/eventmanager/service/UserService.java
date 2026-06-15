@@ -7,10 +7,13 @@ import dev.sorokin.eventmanager.repository.UserRepository;
 import dev.sorokin.eventmanager.dto.UserRegistration;
 import dev.sorokin.eventmanager.entity.UserEntity;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -62,5 +65,17 @@ public class UserService {
                 userRepository.findById(id)
                         .orElseThrow(() -> new EntityNotFoundException("Пользователь не найден"))
         );
+    }
+
+    public UserEntity getCurrentUserEntity() {
+        String login = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getName();
+
+
+        log.info("Looking for user with login: '{}'", login);
+
+        return userRepository.findByLogin(login)
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 }

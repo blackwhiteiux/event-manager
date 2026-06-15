@@ -25,7 +25,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         var userEntity = userRepository.findByLogin(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден."));
 
-        return User.withUsername(username)
+        return User.builder()
+                .username(userEntity.getLogin())
                 .password(userEntity.getPasswordHash())
                 .authorities(userEntity.getRole().name())
                 .build();
