@@ -50,6 +50,19 @@ public class SecurityConfiguration {
                                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/users/auth").permitAll()
 
+                                .requestMatchers(HttpMethod.POST, "/events/registrations/{id}").hasAnyAuthority("USER")
+                                .requestMatchers(HttpMethod.DELETE, "/events/registrations/cancel/{id}").hasAnyAuthority("USER")
+                                .requestMatchers(HttpMethod.GET, "/events/registrations/my").hasAnyAuthority("USER")
+
+                                .requestMatchers(HttpMethod.POST, "/events").hasAnyAuthority("USER")
+                                .requestMatchers(HttpMethod.DELETE, "/events/{id}").hasAnyAuthority("USER", "ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/events/{id}").hasAnyAuthority("USER", "ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/events/{id}").hasAnyAuthority("USER", "ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/events/search").hasAnyAuthority("USER", "ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/events/my").hasAnyAuthority("USER")
+
+
+
                                 .anyRequest().permitAll()
                 )
                 .exceptionHandling(ex ->

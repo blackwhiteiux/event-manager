@@ -14,7 +14,6 @@ public record LocationDto (
         String name,
 
         @NotBlank
-        @NotNull
         String address,
 
         @Min(5)

@@ -9,3 +9,9 @@ databaseChangeLog:
       file: db/changelog/changesets/0004-add-age-to-users.sql
   - include:
       file: db/changelog/changesets/0005-insert-default-users.sql
+  - include:
+      file: db/changelog/changesets/0006-create-events-table.sql
+  - include:
+      file: db/changelog/changesets/0007-create-registrations-table.sql
+  - include:
+      file: db/changelog/changesets/0008-add-cost-to-events.sql
