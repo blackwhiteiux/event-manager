@@ -33,7 +33,7 @@ public class EventController {
 
 
     @PostMapping
-    public ResponseEntity<EventDto> createEvent(
+    public ResponseEntity<EventDto> createEvent (
             @RequestBody @Valid EventCreateRequestDto eventDtoToCreate
     ) {
         log.info("POST /events - request to create event: {}", eventDtoToCreate);
